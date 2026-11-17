@@ -4,7 +4,8 @@ const port = process.env.PORT || 3000;
 const users = [
   { id: 1, name: "Dav-ok", role: "Developer" },
   { id: 2, name: "Ada", role: "Designer" },
-  { id: 3, name: "Chidi", role: "Backend" }
+  { id: 3, name: "Chidi", role: "Backend" },
+  { id: 4, name: "Okechukwu", role: "Full Stack" }
 ];
 
 http.createServer((req, res) => {
