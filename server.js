@@ -8,19 +8,32 @@ const users = [
   { id: 4, name: "Okechukwu", role: "Full Stack" }
 ];
 
-http.createServer((req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
+const html = `
+<html><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>
+body{font-family:sans-serif;background:#0f172a;color:white;padding:20px;text-align:center}
+.card{background:white;color:black;padding:15px;margin:10px;border-radius:12px;text-align:left}
+h1{color:#38bdf8}
+</style></head><body>
+<h1>Dav-ok Team - Day 12</h1>
+<p>Live data from /api/users</p>
+<div id="list">Loading...</div>
+<script>
+fetch('/api/users').then(r=>r.json()).then(users=>{
+  document.getElementById('list').innerHTML = users.map(u=>'<div class="card"><b>'+u.name+'</b><br>'+u.role+'</div>').join('');
+});
+</script>
+</body></html>
+`;
 
-  if (req.url === '/api/hello') {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(JSON.stringify({ message: "Hello from Dav-ok API - Day 11", status: "live" }));
-  }
-  else if (req.url === '/api/users') {
+http.createServer((req, res) => {
+  if (req.url === '/api/users') {
     res.writeHead(200, {'Content-Type': 'application/json'});
     res.end(JSON.stringify(users));
-  }
-  else {
+  } else if (req.url === '/api/hello') {
+    res.writeHead(200, {'Content-Type': 'application/json'});
+    res.end(JSON.stringify({message: "Hello from Dav-ok API - Day 11", status: "live"}));
+  } else {
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.end('<h1>Dav-ok Server - Day 11</h1><p>Try <a href="/api/hello">/api/hello</a> and <a href="/api/users">/api/users</a></p>');
+    res.end(html);
   }
 }).listen(port, () => console.log('Running on ' + port));
