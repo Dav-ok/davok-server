@@ -12,7 +12,7 @@ const html = `
 <html><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>
 body{font-family:sans-serif;background:#22e55c;color:white;padding:20px;text-align:center}
 .card{background:white;color:black;padding:15px;margin:10px;border-radius:12px;text-align:left}
-h1{color:#38bdf8}
+h1{color:#000000}
 </style></head><body>
 <h1>Dav-ok Team - Day 12</h1>
 <p>Live data from /api/users</p>
