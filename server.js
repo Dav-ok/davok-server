@@ -10,7 +10,7 @@ const users = [
 
 const html = `
 <html><head><meta name="viewport" content="width=device-width, initial-scale=1"><style>
-body{font-family:sans-serif;background:#0f172a;color:white;padding:20px;text-align:center}
+body{font-family:sans-serif;background:#22e55c;color:white;padding:20px;text-align:center}
 .card{background:white;color:black;padding:15px;margin:10px;border-radius:12px;text-align:left}
 h1{color:#38bdf8}
 </style></head><body>
